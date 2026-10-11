@@ -1,0 +1,27 @@
+# Python environment and generated files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local configuration and secrets
+.env
+.env.*
+
+# Editor and operating-system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Local database dumps and logs
+dump/
+*.log
+
+# Assignment reference materials kept locally
+PROBLEM_STATEMENT.docx
+sample_data/
+sample_seed.py
