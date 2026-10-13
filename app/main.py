@@ -963,7 +963,7 @@ def employee_monthly(
     attendance_pct = (
         round_half_up(
             Decimal(str(present_days)) / Decimal(working_days) * 100,
-            2,
+            4,
         )
         if working_days
         else None
@@ -1084,7 +1084,7 @@ def department_summary_pipeline(
             "avg_work_hours": {"$cond": [
                 {"$eq": ["$avg_work_hours", None]},
                 None,
-                {"$round": ["$avg_work_hours", 2]},
+                _round_nonnegative_half_up("$avg_work_hours", 2),
             ]},
             "late_count": 1,
             "total_late_minutes": 1,
