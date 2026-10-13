@@ -38,4 +38,6 @@
 
 ## Verification Status
 
-Automated tests, Ruff linting, Python compilation, and local API startup were verified during development. A live MongoDB integration run has not been confirmed. Database-specific behavior, aggregation compatibility, index creation, and query plans should therefore also be checked against the MongoDB version used for evaluation.
+Automated tests (50 passed), Ruff linting, Python compilation, and local API startup were verified during development. A live MongoDB integration run was confirmed for the populated analytics tests using the isolated verification database `attendance_verification_20261013`. These tests cover employee monthly analytics, department summaries, leaderboard ties, department trends, and unknown-department handling.
+
+Database behavior outside those tested paths, execution plans, and performance at representative production-scale data volumes still require verification against the MongoDB version used for evaluation.
