@@ -38,6 +38,8 @@
 
 ## Verification Status
 
-Automated tests (50 passed), Ruff linting, Python compilation, and local API startup were verified during development. A live MongoDB integration run was confirmed for the populated analytics tests using the isolated verification database `attendance_verification_20261013`. These tests cover employee monthly analytics, department summaries, leaderboard ties, department trends, and unknown-department handling.
+Automated verification completed on 14 October 2026: 53 tests passed, Ruff linting passed, and Python compilation completed without errors. The test suite includes real MongoDB integration tests using isolated verification databases.
 
-Database behavior outside those tested paths, execution plans, and performance at representative production-scale data volumes still require verification against the MongoDB version used for evaluation.
+Populated analytics tests cover employee monthly analytics, department summaries, leaderboard ties, department trends, and unknown-department handling. Additional concurrent-request tests verified that simultaneous punch-ins produce exactly one successful creation, simultaneous punch-outs produce exactly one successful update, and competing regularizations preserve the single successful correction's history entry.
+
+The application was also started locally and its health endpoint was checked. The normal database contained no employee or attendance records during the earlier inspection. Performance and query-plan behavior at representative production-scale data volumes still require verification against a populated dataset and the MongoDB version used for evaluation.
